@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
+var logger = require('./common/logger');
+
 var app = express();
 
 var index = require('./routes/index');
@@ -21,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');
-    console.log(req.url);
+    logger.debug(req.url);
     next();
 });
 
