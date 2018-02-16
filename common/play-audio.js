@@ -12,9 +12,8 @@ module.exports = {
         logger.info(messageFolder+receiverId);
         if (fs.existsSync(messageFolder+receiverId)) {
             if(fs.existsSync(folder)) {
-
+                    // let command = 'start common\\playlist.bat'
                     let command = 'common/playlist.sh ' + folder;
-                    // let command = 'omxplayer ~/amai-server/' + folder + '/*';
                     logger.info("command: " + command);
                     cmd.run(command);
             }
