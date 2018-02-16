@@ -52,10 +52,25 @@ router.get('/read', function(req, res, next) {
     res.json(result);
 });
 
-router.get('/play', function(req, res, next) {
-    // let messageId = req.query.id;
-    audio.play("test");
-    res.send("Playing sound");
+router.post('/play', function(req, res, next) {
+    let receiverId = req.body.receiverId;
+    let beaconId = req.body.beaconId;
+    audio.play(receiverId,beaconId);
+    console.log();
+    let mockResult = {
+        "success":"true",
+        "messages": [
+            {
+                "from": "Marijn",
+                "message":"We need more milk!"
+            },
+            {
+                "from": "Jeroen",
+                "message":"Welcome home!"
+            },
+        ]
+    };
+    res.json(mockResult);
 });
 
 
