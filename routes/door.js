@@ -28,7 +28,7 @@ router.get('/ring', (req, res) => {
     }
 });
 
-router.get('/ring', (req, res) => {
+router.post('/ring', (req, res) => {
     doorBell = true;
 });
 
