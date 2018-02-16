@@ -9,6 +9,7 @@
     "body-parser": "~1.18.2",
     "express": "~4.15.5",
     "fs": "0.0.1-security",
+    "node-cmd": "^3.0.0",
     "path": "^0.12.7",
     "pino": "^4.10.4",
     "pug": "2.0.0-beta11"
