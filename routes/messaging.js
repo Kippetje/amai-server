@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs.extra');
 var messages = require('../private/messages.json');
 let audio = require('../common/play-audio');
 let logger = require('../common/logger');
+
+const saveBase = 'private/messages/'
+const extension = '.amr'
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -12,6 +16,20 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     logger.info('Received new audio file ');
+
+    var receiverId = JSON.stringify(req.body.receiverId)
+    var data = JSON.stringify(req.body.data);   
+    var senderName = JSON.stringify(req.body.senderName).replace(/"/g,"");   
+    var beaconId = JSON.stringify(req.body.beaconId).replace(/"/g,"");
+    var buff = new Buffer(data, 'base64');  
+
+    //create a path private/messages/<receiverId>/<beaconId>
+    var savePath = saveBase + receiverId + '/' + beaconId 
+    fs.mkdirRecursive(savePath,'0777');
+    //add to created path <currenttimestamp>_<senderName>.amr
+    var savePath = savePath+ '/' + Date.now()+ '_'+ senderName + extension
+    fs.writeFileSync(savePath, buff);
+    
     res.json({'success':'true','message':'Saved a new audio file'});
 });
 
