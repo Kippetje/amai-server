@@ -1,22 +1,64 @@
 [
   {
     "id": 0,
-    "name": "Karin"
+    "name": "Karin",
+    "beacons": [
+      {
+        "id": "d4ed9e691e0382103ed6852d03a4a215",
+        "location": "hall"
+      }
+    ]
   },
   {
     "id": 1,
-    "name": "Marijn"
+    "name": "Marijn",
+    "beacon": [
+      {
+        "id": "d4ed9e691e0382103ed6852d03a4a215",
+        "location": "hall"
+      },
+      {
+        "id": "c15e581c4f861078b8b2b42c32a4b905",
+        "name": "kitchen"
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Jeroen"
+    "name": "Jeroen",
+    "beacon": [
+      {
+        "id": "c15e581c4f861078b8b2b42c32a4b905",
+        "name": "kitchen"
+      }
+    ]
   },
   {
     "id": 3,
-    "name": "Ankie"
+    "name": "Ankie",
+    "beacon": [
+      {
+        "id": "d4ed9e691e0382103ed6852d03a4a215",
+        "location": "hall"
+      },
+      {
+        "id": "c15e581c4f861078b8b2b42c32a4b905",
+        "name": "kitchen"
+      }
+    ]
   },
   {
     "id": 4,
-    "name": "Sergei"
+    "name": "Sergei",
+    "beacon": [
+      {
+        "id": "d4ed9e691e0382103ed6852d03a4a215",
+        "location": "hall"
+      },
+      {
+        "id": "c15e581c4f861078b8b2b42c32a4b905",
+        "name": "kitchen"
+      }
+    ]
   }
 ]
