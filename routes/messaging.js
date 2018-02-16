@@ -21,7 +21,9 @@ router.post('/', function (req, res, next) {
     var data = JSON.stringify(req.body.data);   
     var senderName = JSON.stringify(req.body.senderName).replace(/"/g,"");   
     var beaconId = JSON.stringify(req.body.beaconId).replace(/"/g,"");
-    var buff = new Buffer(data, 'base64');  
+    data = data.slice(1, -1);
+    // var buff = new Buffer(data, 'base64');  
+    var buff = Buffer.from(data, 'base64'); 
 
     //create a path private/messages/<receiverId>/<beaconId>
     var savePath = saveBase + receiverId + '/' + beaconId 
