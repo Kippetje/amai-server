@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');
-    logger.debug(req.url);
+    logger.debug(req.connection.remoteAddress, req.url);
     next();
 });
 
