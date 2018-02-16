@@ -1,7 +1,6 @@
 'use strict';
 var cmd = require('node-cmd');
 var fs = require('fs');
-var sleep = require('system-sleep');
 let logger = require('../common/logger')
 // const messageFolder = "~/amai-server/private/messages/";
 const messageFolder = "private/messages/";
