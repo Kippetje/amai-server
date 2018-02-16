@@ -1,4 +1,4 @@
-for file in $2/*
+for file in $1/*
 do
- omxplayer -o $1 $file
+ omxplayer --q -o local $file
 done
