@@ -52,7 +52,7 @@ router.post('/play', function(req, res, next) {
             },
         ]
     };
-    res.json({});
+    res.json(mockResult);
 });
 
 
