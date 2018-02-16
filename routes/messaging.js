@@ -35,9 +35,9 @@ router.get('/read', function(req, res, next) {
 });
 
 router.post('/play', function(req, res, next) {
-    let senderId = req.body.senderId;
+    let receiverId = req.body.receiverId;
     let beaconId = req.body.beaconId;
-    audio.play(senderId,beaconId);
+    audio.play(receiverId,beaconId);
     console.log();
     let mockResult = {
         "success":"true",

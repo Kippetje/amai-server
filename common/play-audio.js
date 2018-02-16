@@ -5,11 +5,13 @@ var fs = require('fs');
 const messageFolder = "private/messages/";
 
 module.exports = {
-    play : function (senderId, beaconId) {
-        console.log("Searching messages for: " + senderId + " for beacon: " + beaconId);
-        fs.readdirSync(messageFolder+senderId+"/"+beaconId).forEach(file => {
-                console.log(file);
-                cmd.run('omxplayer ~/amai-server//private/messages/'+userId+'/'+beaconId+'/'+file);
+    play : function (receiverId, beaconId) {
+        var folder = messageFolder+receiverId+"/"+beaconId;
+        console.log("Searching messages for: " + receiverId + " for beacon: " + beaconId);
+        fs.readdirSync(folder).forEach(file => {
+            let command = 'omxplayer ~/amai-server/'+folder+'/'+file;
+            console.log("command: " + command);
+            cmd.run(command);
         })
 
     }
