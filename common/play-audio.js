@@ -14,7 +14,7 @@ module.exports = {
         if (fs.existsSync(messageFolder+receiverId)) {
             if(fs.existsSync(folder)) {
                 fs.readdirSync(folder).forEach(file => {
-                    let command = 'omxplayer ~/amai-server/' + folder + '/' + file;
+                    let command = 'omxplayer -o local ~/amai-server/' + folder + '/' + file;
                     // let command = 'omxplayer ~/amai-server/' + folder + '/*';
                     logger.info("command: " + command);
                     cmd.run(command);
