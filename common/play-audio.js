@@ -13,13 +13,13 @@ module.exports = {
         logger.info(messageFolder+receiverId);
         if (fs.existsSync(messageFolder+receiverId)) {
             if(fs.existsSync(folder)) {
-                // fs.readdirSync(folder).forEach(file => {
-                //     let command = 'omxplayer ~/amai-server/' + folder + '/' + file;
-                    let command = 'omxplayer ~/amai-server/' + folder + '/*';
+                fs.readdirSync(folder).forEach(file => {
+                    let command = 'omxplayer ~/amai-server/' + folder + '/' + file;
+                    // let command = 'omxplayer ~/amai-server/' + folder + '/*';
                     logger.info("command: " + command);
                     cmd.run(command);
-                    // sleep(30000);
-                // })
+                    sleep(30000);
+                })
             }
         }
 
