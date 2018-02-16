@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "room": "hall",
+    "target": "all",
+    "from": "Jeroen",
+    "message":"Welcome home!"
+  },
+  {
+    "id": 1,
+    "room": "kitchen",
+    "target": "all",
+    "from": "Marijn",
+    "message":"We need more milk!"
+  },
+  {
+    "id": 2,
+    "room": "hall",
+    "target": "Ankie",
+    "from": "Jeroen",
+    "message":"Welcome home, Ankie!"
+  }
+]

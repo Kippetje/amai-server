@@ -9,6 +9,7 @@ var app = express();
 var index = require('./routes/index');
 var users = require('./routes/users');
 var door = require('./routes/door');
+var messaging = require('./routes/messaging');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use('/', index);
 app.use('/users', users);
 app.use('/door', door);
+app.use('/messaging', messaging);
 
 function getRoutes() {
     var route, routes = [];
