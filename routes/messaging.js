@@ -43,8 +43,8 @@ router.get('/read', function(req, res, next) {
                 result.push(message);
             }
         });
-        console.log(`Found following messages for room ${room}:`);
-        console.log(JSON.stringify(result, null, 4));
+        logger.info(`Found following messages for room ${room}:`);
+        logger.info(JSON.stringify(result, null, 4));
     }
     else{ // return all messages if no user
         result = messages;
@@ -56,7 +56,7 @@ router.post('/play', function(req, res, next) {
     let receiverId = req.body.receiverId;
     let beaconId = req.body.beaconId;
     audio.play(receiverId,beaconId);
-    console.log();
+    logger.info("mocking result");
     let mockResult = {
         "success":"true",
         "messages": [

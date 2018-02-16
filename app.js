@@ -9,6 +9,7 @@ var app = express();
 var index = require('./routes/index');
 var users = require('./routes/users');
 var door = require('./routes/door');
+var movement = require('./routes/movement');
 var messaging = require('./routes/messaging');
 
 // view engine setup
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 app.use('/', index);
 app.use('/users', users);
 app.use('/door', door);
+app.use('/movement', movement);
 app.use('/messaging', messaging);
 
 function getRoutes() {
@@ -49,9 +51,9 @@ function getRoutes() {
     return routes;
 }
 
-app.get('/routes', (res, req)=>{
-    req.json(getRoutes());
-});
+// app.get('/routes', (res, req)=>{
+//     req.json(getRoutes());
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

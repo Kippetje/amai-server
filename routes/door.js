@@ -30,6 +30,7 @@ router.get('/ring', (req, res) => {
 
 router.post('/ring', (req, res) => {
     doorBell = true;
+    res.close();
 });
 
 module.exports = router;
