@@ -6,7 +6,7 @@ let audio = require('../common/play-audio');
 let logger = require('../common/logger');
 
 const saveBase = 'private/messages/'
-const extension = '.amr'
+const extension = '.mp4'
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
