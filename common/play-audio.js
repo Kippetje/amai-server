@@ -37,7 +37,9 @@ function playFile(file) {
     logger.debug(fullpath, fs.existsSync(fullpath));
     logger.debug('test', process.platform);
     if (process.platform == 'win32') {
-        logger.error('Windows');
+        let command = 'start common\\playlist.bat ' + fullpath;
+        logger.info("command: " + command);
+        cmd.run(command);
     } else if (process.platform == 'linux') {
         // fire and forget:
         logger.debug('Play sound',fullpath);
@@ -49,6 +51,10 @@ function playFile(file) {
                 logger.debug('Played file', fullpath);
             }
         );
+    } else {
+        let command = 'common/playlist.sh ' + fullpath;
+        logger.info("command: " + command);
+        cmd.run(command);
     }
 }
 
