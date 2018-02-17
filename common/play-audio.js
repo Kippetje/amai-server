@@ -48,7 +48,8 @@ function playFile(file) {
             isplaying = true;
 
             logger.debug('Play sound', fullpath);
-            new Sound(fullpath).play();
+            var music = new Sound(fullpath);
+            music.play();
 
             // you can also listen for various callbacks:
             music.on('complete',
