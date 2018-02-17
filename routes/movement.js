@@ -6,7 +6,8 @@ var movement = false;
 
 router.get('/on', function (req, res, next) {
     movement = true;
-    audio.playFile('../private/sound/hello.wav');
+    // audio.playFile('../private/sound/hello.wav');
+    audio.playFile('../private/sound/imperial_march.wav');
     res.close();
 });
 
