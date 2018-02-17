@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var audio = require('../common/play-audio');
 
 var movement = false;
 
 router.get('/on', function (req, res, next) {
     movement = true;
+    audio.playFile('../private/sound/hello.wav');
     res.close();
 });
 
