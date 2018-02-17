@@ -32,6 +32,8 @@ function playOther(receiverId, beaconId) {
     }
 }
 
+var isplaying = false;
+
 function playFile(file) {
     var fullpath = path.join(__dirname, file);
     logger.debug(fullpath, fs.existsSync(fullpath));
@@ -42,15 +44,23 @@ function playFile(file) {
         cmd.run(command);
     } else if (process.platform == 'linux') {
         // fire and forget:
-        logger.debug('Play sound',fullpath);
-        new Sound(fullpath).play();
+        if (!isplaying) {
+            isplaying = true;
 
-        // you can also listen for various callbacks:
-        music.on('complete',
-            function () {
-                logger.debug('Played file', fullpath);
-            }
-        );
+            logger.debug('Play sound', fullpath);
+            new Sound(fullpath).play();
+
+            // you can also listen for various callbacks:
+            music.on('complete',
+                function () {
+                isplaying =false;
+                    logger.debug('Played file', fullpath);
+
+                }
+            );
+        } else {
+            logger.warn('Already playing.');
+        }
     } else {
         let command = 'common/playlist.sh ' + fullpath;
         logger.info("command: " + command);
