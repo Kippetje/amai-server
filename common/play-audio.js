@@ -4,6 +4,7 @@ var fs = require('fs');
 let logger = require('../common/logger');
 const messageFolder = "private/messages/";
 var Sound = require('node-aplay');
+var path = require('path');
 
 function playWindows(receiverId, beaconId) {
     var folder = messageFolder + receiverId + "/" + beaconId;
@@ -32,14 +33,20 @@ function playOther(receiverId, beaconId) {
 }
 
 function playFile(file) {
-    if (fs.existsSync(file)) {
+    var fullpath = logger.debug(path.join(__dirname, file));
+    logger.debug(file, fs.existsSync(fullpath));
+    logger.debug('test', process.platform);
+    if (process.platform == 'win32') {
+        logger.error('Windows');
+    } else {
         // fire and forget:
-        new Sound(file).play();
+        logger.debug('Play sound');
+        new Sound(fullpath).play();
 
         // you can also listen for various callbacks:
         music.on('complete',
             function () {
-                logger.debug('Played file', file);
+                logger.debug('Played file', fullpath);
             }
         );
     }
