@@ -33,13 +33,14 @@ function playOther(receiverId, beaconId) {
 }
 
 function playFile(file) {
-    var fullpath = logger.debug(path.join(__dirname, file));
+    var fullpath = path.join(__dirname, file);
+    logger.debug(fullpath, fs.existsSync(fullpath));
     logger.debug('test', process.platform);
     if (process.platform == 'win32') {
         logger.error('Windows');
     } else if (process.platform == 'linux') {
         // fire and forget:
-        logger.debug('Play sound');
+        logger.debug('Play sound',fullpath);
         new Sound(fullpath).play();
 
         // you can also listen for various callbacks:
