@@ -2,19 +2,16 @@
 var cmd = require('node-cmd');
 var fs = require('fs');
 let logger = require('../common/logger')
-// const messageFolder = "~/amai-server/private/messages/";
 const messageFolder = "private/messages/";
 
 module.exports = {
     play : function (receiverId, beaconId) {
         var folder = messageFolder + receiverId + "/" + beaconId;
         logger.info("Searching messages for: " + receiverId + " for beacon: " + beaconId);
-        logger.info(messageFolder+receiverId);
+        logger.info(folder);
         if (fs.existsSync(messageFolder+receiverId)) {
             if(fs.existsSync(folder)) {
-
-                    let command = 'common/playlist.sh ' + folder;
-                    // let command = 'omxplayer ~/amai-server/' + folder + '/*';
+                    let command = 'start common\\playlist.bat ' + folder;
                     logger.info("command: " + command);
                     cmd.run(command);
             }
@@ -22,3 +19,4 @@ module.exports = {
 
     }
 };
+
