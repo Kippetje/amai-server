@@ -1,4 +1,10 @@
-for file in $1/*
+cd $1
+mkdir -p read
+for file in *.amr
 do
-    afplay $file
+    file=${file##*/}
+    echo "Playing:" ${file}
+    afplay ${file}
+    cp ${file} read/${file}
+    rm ${file}
 done
